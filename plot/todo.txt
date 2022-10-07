@@ -4,4 +4,4 @@ Fazer:
 - Criar querys nas models
 - Ajustar layour
 - Criar novas rotas
-- Criar filtros
+- Criar filtross

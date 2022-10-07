@@ -1,20 +1,18 @@
 from django.db import models
+from .querys import Pedidos_ORM
 
 # Create your models here.
 class Pedido(models.Model):
     
-    def get_pedidos(self, query=""):
-        
+    def get_pedidos_data(self):
         # Select query
-        query = """ 
-                    SELECT id, COUNT(id) as qtd, SUM(total) as faturamento, YEAR(created_at) as year 
-                    FROM assinaturas_faturas
-                    WHERE status NOT IN(1,4)
-                    AND total < 300
-                    GROUP BY year
-                    ORDER BY year  
-                    LIMIT 5
-                """
+        query = Pedidos_ORM.get_pedidos_aprovados_data()
+        
+        return Pedido.objects.raw(query)
+        
+    def get_pedidos_raw(self):
+        # Select query
+        query = Pedidos_ORM.get_pedidos_aprovados_raw()
         
         return Pedido.objects.raw(query)
         

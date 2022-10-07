@@ -1,15 +1,20 @@
-{% extends 'graph/base.html' %}
+{% extends 'base.html' %}
 
 {% block contents %}
-<!-- Graph values -->
+<!-- Graph values pedidos-->
 <input id="labels" type="hidden" value="{{ labels|safe }}">
 <input id="datas" type="hidden" value="{{ datas|safe }}">
   
 <!-- Container  -->
-<div class="w-1/2 mx-auto min-h-screen flex flex-col justify-middle justify-center items-middle">
+<div class="flex flex-col gap-5">
+
+    <h2 class="font-semibold">Pedidos com status aprovado:</h2>
+
     <!-- Graph  -->
-    <h1 class="uppercase text-center font-bold text-xl">Pedidos: Total aprovados</h1>      
-    <canvas id="myChart" width="500" height="200"></canvas>
+    <div class="flex w-3/6">
+        <canvas id="myChart" width="300" height="200"></canvas>    
+    </div>
+    
 </div>
 
 
@@ -25,8 +30,8 @@ const myChart = new Chart(ctx, {
         labels  : JSON.parse(labels),
         datasets: [{
             data           : JSON.parse(datas),
-            backgroundColor: ['rgba(30, 144, 255, 0.8)'],
-            borderColor    : ['rgb(30, 144, 255)'],
+            backgroundColor: ['rgba(0,136,204, 0.8)'],
+            borderColor    : ['rgb(0,136,204)'],
             borderWidth    : 2
         }]
     },

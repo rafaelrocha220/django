@@ -59,7 +59,7 @@ ROOT_URLCONF = 'main.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [Path.joinpath(BASE_DIR, '_templates')],
+        'DIRS': [Path.joinpath(BASE_DIR, 'graph/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

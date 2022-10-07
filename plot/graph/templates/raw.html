@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<!-- Graph values pedidos-->
+<input id="labels" type="hidden" value="{{ labels|safe }}">
+<input id="datas" type="hidden" value="{{ datas|safe }}">
+  
+<!-- Container  -->
+<div class="flex flex-col gap-5">
+    
+    <!-- Titulo -->
+    <h1 class="text-md font-semibold">Pedidos com status aprovado</h1>
+    
+    <!-- Medidas -->
+    <div class="flex flex-row gap-5 p-4 bg-gray-100 border justify-around">
+        <div class="">
+            <p class="text-xl font-semibold">R$ 5.000.000</p>
+            <p class="text-gray-500 text-sm uppercase">faturamento</p>
+        </div>
+        <div class="">
+            <p class="text-xl font-semibold">R$ 5.000.000</p>
+            <p class="text-gray-500 text-sm uppercase">faturamento</p>
+        </div>
+        <div class="">
+            <p class="text-xl font-semibold">R$ 5.000.000</p>
+            <p class="text-gray-500 text-sm uppercase">faturamento</p>
+        </div>
+        <div class="">
+            <p class="text-xl font-semibold">R$ 5.000.000</p>
+            <p class="text-gray-500 text-sm uppercase">faturamento</p>
+        </div>
+    </div>
+    
+    <!-- Resultados -->
+    <table class="table-auto border text-sm">
+        <thead class="text-left">
+            <tr class="bg-gray-100 border-b">
+                <th class="py-3 px-4">id</th>
+                <th>tipo pag.</th>
+                <th>desc. pag.</th>
+                <th>status</th>
+                <th>total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for line in resultados %}
+            <tr class="border-b hover:bg-gray-100 cursor-auto">
+                <td class="py-3 px-4">{{ line.id }}</td>
+                <td>{{ line.payment_method }}</td>
+                <td>{{ line.payment_title }}</td>
+                <td>{{ line.status }}</td>
+                <td>{{ line.total }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+
+{% endblock contents %}

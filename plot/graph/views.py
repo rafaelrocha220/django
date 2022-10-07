@@ -1,17 +1,28 @@
+from unittest import result
 from django.shortcuts import render
 
 from .models import Pedido
 
 # Create your views here.
-def home(req):
+def home2(req):
     
     pedido = Pedido()
-    resultados = pedido.get_pedidos()
+    resultados = pedido.get_pedidos_data()
     
     # Make graph
     labels = [row.year for row in resultados]
     data = [int(row.faturamento) for row in resultados]
     
-    context = {'labels': labels, 'datas': data}
+    return render(req, 'data.html', {
+        'labels': labels,
+        'datas' : data
+    })
+
+def home(req):
     
-    return render(req, 'graph/index.html', context)
+    pedido = Pedido()
+    resultados = pedido.get_pedidos_raw()
+    
+    return render(req, 'raw.html', {
+        'resultados': resultados,
+    })
