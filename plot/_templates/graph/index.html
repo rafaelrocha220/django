@@ -1,0 +1,42 @@
+{% extends 'graph/base.html' %}
+
+{% block contents %}
+<!-- Graph values -->
+<input id="labels" type="hidden" value="{{ labels|safe }}">
+<input id="datas" type="hidden" value="{{ datas|safe }}">
+  
+<!-- Container  -->
+<div class="w-1/2 mx-auto min-h-screen flex flex-col justify-middle justify-center items-middle">
+    <!-- Graph  -->
+    <h1 class="uppercase text-center font-bold text-xl">Pedidos: Total aprovados</h1>      
+    <canvas id="myChart" width="500" height="200"></canvas>
+</div>
+
+
+<script>
+// Graph values
+labels = document.getElementById('labels').value
+datas = document.getElementById('datas').value
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels  : JSON.parse(labels),
+        datasets: [{
+            data           : JSON.parse(datas),
+            backgroundColor: ['rgba(30, 144, 255, 0.8)'],
+            borderColor    : ['rgb(30, 144, 255)'],
+            borderWidth    : 2
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});</script>
+{% endblock contents %}
+    
