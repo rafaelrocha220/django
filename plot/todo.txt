@@ -1,0 +1,7 @@
+Fazer:
+
+- Criar medidas
+- Criar querys nas models
+- Ajustar layour
+- Criar novas rotas
+- Criar filtros
