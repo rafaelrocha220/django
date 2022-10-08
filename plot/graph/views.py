@@ -22,7 +22,14 @@ def home(req):
     
     pedido = Pedido()
     resultados = pedido.get_pedidos_raw()
+    resultados_data = pedido.get_pedidos_data()
+    
+    # Make graph
+    labels = [row.year for row in resultados_data]
+    data = [int(row.faturamento) for row in resultados_data]
     
     return render(req, 'raw.html', {
         'resultados': resultados,
+        'labels'    : labels,
+        'datas'     : data
     })

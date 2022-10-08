@@ -2,6 +2,21 @@ Fazer:
 
 - Criar medidas
 - Criar querys nas models
-- Ajustar layour
+- Ajustar layout
 - Criar novas rotas
-- Criar filtross
+- Criar filtros
+- Fazer pagination
+- Deixar o design por ultimo
+- Focar apenas no desenvolvimento
+- Não entrar em páginas dinâmicas ou então usar javascript
+
+
+Objetivo:
+
+- Um sql fazer todas as tarefas restantes:
+    - Listar
+    - Filtrar
+    - Buscar
+    - Medidas
+    - Gráficos
+

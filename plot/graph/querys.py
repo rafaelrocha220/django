@@ -19,7 +19,7 @@ class Pedidos_ORM:
             SELECT *
             FROM assinaturas_faturas
             WHERE status NOT IN(1,4)
-            LIMIT 20
+            LIMIT 50
         """
         
 
