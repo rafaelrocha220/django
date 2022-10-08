@@ -12,8 +12,13 @@
     
     <div class="flex flex-col gap-5 w-3/4">
             
-        <!-- Titulo -->
-        <h1 class="uppercase font-semibold">Pedidos com status aprovado</h1>
+        <div class="flex flex-row items-center justify-between">
+            <!-- Titulo -->
+            <h1 class="uppercase font-semibold">Pedidos com status aprovado</h1>
+            <input type="text" placeholder="Pesquisar resultados..." class="outline-none rounded px-4 py-1 border focus:border-neutral-700 w-2/6">
+        
+        </div>
+        
         
         <!-- Resultados -->
         <table class="table-auto border text-sm">
@@ -43,7 +48,7 @@
     
     <div class="flex flex-col gap-5 text-center w-1/4">
         <!-- Titulo -->
-        <h1 class="uppercase font-semibold text-left">Overview</h1>
+        <h1 class="uppercase font-semibold text-left py-1 border border-white">Overview</h1>
         
         <div class="p-4 bg-gray-100 border">
             <canvas id="myChart" width="300" height="200"></canvas>    
@@ -77,8 +82,8 @@ const myChart = new Chart(ctx, {
         labels  : JSON.parse(labels),
         datasets: [{
             data           : JSON.parse(datas),
-            backgroundColor: ['rgba(0,0,0, 0.7)'],
-            borderColor    : ['rgb(0,0,0)'],
+            backgroundColor: ['rgba(0,136,204, 0.8)'],
+            borderColor    : ['rgb(0,136,204)'],
             borderWidth    : 2
         }]
     },

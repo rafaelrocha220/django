@@ -1,7 +1,8 @@
 Fazer:
 
 - Criar medidas
-- Criar querys nas models
+- Criar rotas corretas
+- Criar querys nas models e após os filtos no banco de dados tabela
 - Ajustar layout
 - Criar novas rotas
 - Criar filtros
@@ -9,7 +10,8 @@ Fazer:
 - Deixar o design por ultimo
 - Focar apenas no desenvolvimento
 - Não entrar em páginas dinâmicas ou então usar javascript
-
+- Coluna de texto alinha para a esquerda coluna numerica alinhar para direita
+- Passar os names corretos para as rotas
 
 Objetivo:
 
@@ -19,4 +21,19 @@ Objetivo:
     - Buscar
     - Medidas
     - Gráficos
+    
+
+Views: 
+    
+    - Base
+    - Navbar
+    - Content
+        - Overview
+            - Gráfico
+            - Medidas
+        - Lista
+            - Filtro
+            - Resultados
+            
+* Mesma query
 
