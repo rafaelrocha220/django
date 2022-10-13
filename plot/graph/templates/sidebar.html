@@ -1,0 +1,28 @@
+<div class="flex flex-col gap-5 w-1/6 bg-neutral-800 border-r min-h-screen">
+        
+    <div class="logo  py-5 px-5 text-white border-b border-neutral-700 shadow">
+        <h1 class="">Análise de dados</h1>
+    </div>
+    
+    <div class="links flex flex-col text-white px-5 gap-5">
+        
+        <p class="uppercase font-semibold text-sm">Dashboard</p>
+        
+        <!-- Pedidos -->
+        <div class="flex flex-col gap-2">
+            <p class="uppercase font-semibold text-sm">Assinaturas</p>
+            <a href="{% url 'assinaturas' %}" class="hover:text-neutral-100 text-neutral-300 pl-5">Aprovadas</a>
+            <a href="#" class="text-neutral-300 pl-5">Cancelados</a>
+        </div>
+        
+        <!-- Afiliados -->
+        <div class="flex flex-col gap-2">
+            <p class="uppercase font-semibold text-sm">Afiliados</p>
+            <a href="#" class="text-neutral-300 pl-5">Ativos mensal</a>
+            <a href="#" class="text-neutral-300 pl-5">Expirados</a>
+            <a href="#" class="text-neutral-300 pl-5">Próximo expirar</a>
+        </div>
+        
+    </div>
+    
+</div>

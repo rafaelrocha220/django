@@ -3,26 +3,26 @@ from unittest import result
 from django.shortcuts import render
 
 # Models
-from .models import Pedido
-
+from .models import Assinatura
+    
 # Create your views here.
-
 def dashboard(req):
     return render(req, 'dashboard.html')
     
-
-def pedidos(req):
+# Assinaturas
+def assinaturas(req):
     
-    pedido = Pedido()
-    resultados = pedido.get_pedidos_raw()
-    resultados_data = pedido.get_pedidos_data()
+    inputs = req.GET.dict() or False
+    assinatura = Assinatura(inputs)
+    graficos, medidas, resultados, filtros = assinatura.main()
     
-    # Make graph
-    labels = [row.year for row in resultados_data]
-    data = [int(row.faturamento) for row in resultados_data]
-    
-    return render(req, 'raw.html', {
+    return render(req, 'assinaturas/index.html', {
         'resultados': resultados,
-        'labels'    : labels,
-        'datas'     : data
+        'filtros'   : filtros,
+        'medidas'   : medidas,
+        'graficos'  : graficos,
     })
+    
+
+
+    

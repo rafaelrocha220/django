@@ -1,17 +1,36 @@
 from django.db import models
-from .querys import Pedidos_ORM
+import locale
+
+from graph.entitys.assinatura.Medida import Medida
+from graph.entitys.assinatura.Resultado import Resultado
+from graph.entitys.assinatura.Grafico import Grafico
+
 
 # Create your models here.
-class Pedido(models.Model):
+class Assinatura(models.Model):
+        
+    def __init__(self, inputs):
+        if(inputs != False):
+            self.inputs = inputs
+        else: 
+            self.inputs = False
+        
+    def main(self):
     
-    def get_pedidos_data(self):
-        # Select query
-        query = Pedidos_ORM.get_pedidos_aprovados_data()
-        return Pedido.objects.raw(query)
+        # Resultados
+        resultado  = Resultado()
+        resultados = resultado.get_resultados(self.inputs)
+        labels     = resultado.labels(resultados)
+        filtros    = resultado.filtros(resultados)
         
-    def get_pedidos_raw(self):
-        # Select query
-        query = Pedidos_ORM.get_pedidos_aprovados_raw()
-        return Pedido.objects.raw(query)
+        # Graficos e medidas
+        graficos   = Grafico(labels).assinaturas_graficos()
+        medidas    = Medida(labels).assinaturas_medidas()
         
+        return graficos, medidas, resultados, filtros
+        
+ 
+    
+
+
 

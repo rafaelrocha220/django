@@ -1,5 +1,4 @@
 Fazer:
-
 - Criar medidas
 - Criar rotas corretas
 - Criar querys nas models e após os filtos no banco de dados tabela
@@ -14,26 +13,23 @@ Fazer:
 - Passar os names corretos para as rotas
 
 Objetivo:
-
 - Um sql fazer todas as tarefas restantes:
     - Listar
     - Filtrar
     - Buscar
     - Medidas
     - Gráficos
-    
 
 Views: 
-    
-    - Base
-    - Navbar
-    - Content
-        - Overview
-            - Gráfico
-            - Medidas
-        - Lista
-            - Filtro
-            - Resultados
+- Base
+- Navbar
+- Content
+    - Overview
+        - Gráfico
+        - Medidas
+    - Lista
+        - Filtro
+        - Resultados
             
 * Mesma query
 

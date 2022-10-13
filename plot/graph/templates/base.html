@@ -7,52 +7,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
-    <title>Graph</title>
+    <title>Análise de dados</title>
 </head>
-<body class="flex flex-row">
 
+<body class="flex flex-row">
+    
     <!-- Navegacao -->
-    <div class="flex flex-col gap-5 w-1/6 bg-gray-100 border-r min-h-screen">
-        
-        <div class="logo p-5 border-b">
-            <h1 class="">Análise de dados</h1>
-        </div>
-        
-        <div class="links flex flex-col px-5 gap-5">
-            
-            <p class="uppercase font-semibold text-sm">Dashboard</p>
-            
-            <!-- Pedidos -->
-            <div class="flex flex-col gap-2">
-                <p class="uppercase font-semibold text-sm">Pedidos</p>
-                <a href="#">- Aprovados</a>
-                <a href="#">- Cancelados</a>
-            </div>
-            
-            <!-- Afiliados -->
-            <div class="flex flex-col gap-2">
-                <p class="uppercase font-semibold text-sm">Afiliados</p>
-                <a href="#">- Ativos mensal</a>
-                <a href="#">- Expirados</a>
-                <a href="#">- Próximo expirar</a>
-            </div>
-            
-        </div>
-        
-    </div>
+    {% include 'sidebar.html' %}
     
     <!-- Conteudo -->
-    <div class="w-5/6 flex flex-col">
-        <div class="w-full p-5 bg-gray-100 border-b flex flex-row justify-between">
-            <div class="">Navbar secundario</div>
+    <div class="w-5/6 flex bg-white flex-col">
+    
+        <div class="w-full bg-gray-50 p-5 border-b flex flex-row justify-between">
+            <div class="">Assinaturas Dashboard</div>
             <div>Menu</div>
         </div>
-        <div class="p-5">
+        
         {% block contents %}
         <!-- contents -->
         {% endblock contents %}
-        </div>
+    
     </div>
 
 </body>
+
 </html>
+
+
+
+

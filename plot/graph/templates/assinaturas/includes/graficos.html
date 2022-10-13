@@ -1,0 +1,64 @@
+<div class="flex flex-col gap-5">
+    
+    <p class="text-sm uppercase border-b font-semibold text-gray-500 pb-1">Gráficos</p>
+        
+        {% for grafico in graficos %}
+        <div class="flex flex-col">
+           
+            <p class="text-sm text-gray-500 bg-gray-100 border-l border-r border-t p-4">{{ grafico.title }}</p>
+           
+            <!-- Plot chart -->
+            <div class="w-full bg-gray-50 p-5 gap-5 flex flex-col  border w-full">
+                <canvas class="max-h-80" id="{{ grafico.chart }}" width="300" height="200"></canvas>   
+            </div>
+            
+            <script>
+            // Graph values
+            var ctx = document.getElementById('{{ grafico.chart }}').getContext('2d');
+            console.log("{{ grafico.chart }}")
+            
+            var myChart = new Chart(ctx, {
+                type: "{{ grafico.type|safe }}",
+                data: {
+                    labels  : JSON.parse("{{ grafico.labels|safe }}"),
+                    datasets: [{
+                        maxBarThickness: 30,
+                        data           : JSON.parse("{{ grafico.data|safe }}"),
+                        backgroundColor: ['rgba(0,150,100, 0.7)'],
+                        borderColor    : ['rgb(0,150,100)'],
+                        borderWidth    : 2
+                    }]
+                },
+                options: {
+                    // indexAxis: 'y',
+                    fill      : true,
+                    responsive: true,
+                    plugins   : {
+                        legend: { display: false },
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                           
+                            grid: {
+                                display: 1,
+                                // You can change the color, the dash effect, the main axe color, etc.
+                                borderDash: [2, 5],
+                            }   
+                        },
+                        x:{
+                            grid: {
+                                display   : 0,
+                                borderDash: [2, 5],
+                                
+                            }
+                        }
+                    }
+                },
+            });
+            </script>
+            
+        </div>
+       {% endfor %}
+</div>
+

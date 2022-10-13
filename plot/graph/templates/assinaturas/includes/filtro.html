@@ -1,0 +1,31 @@
+<div class="flex flex-col gap-5">
+   
+    <p class="text-left text-sm border-b uppercase font-semibold text-gray-500 pb-1">Filtro</p>
+    {{ reqs }}
+    <!-- Medidas -->
+    <form method="get" action="" class="flex grid grid-cols-3 gap-5 text-gray-600 w-full">
+        
+        <!-- Selects -->
+        {% for filtro in filtros %}
+        <div class="flex flex-col relative">
+            <select name="{{ filtro.name }}" class="block capitalize text-sm appearance-none bg-gray-100 border text-gray-700 py-2 px-4 rounded leading-tight focus:outline-none">
+                <option value="">{{ filtro.label }}</option>
+                {% for opt in filtro.options %}
+                <option class="px-4 py-2 capitalize bg-red-500" value="{{ opt.value }}">{{ opt.label }}</option>
+                {% endfor %}
+                
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            </div>
+        </div>
+        {% endfor %}
+        
+        <!-- Actions -->
+        <div class="actions {% if filtros|length|divisibleby:3 %}col-span-3 flex flex-row justify-end{% endif %}">
+            <button type="submit" class="px-4 py-2 bg-neutral-800 text-sm border border-neutral-700 text-white">Filtrar</button>
+        </div>
+        
+    </form>
+    
+</div>

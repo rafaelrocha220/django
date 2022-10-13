@@ -7,9 +7,9 @@ urlpatterns = [
     # Dashboard index
     path('', dashboard, name='dashobard'),
     
-    # Dimensão
-    path('dimensao/pedidos', pedidos, name='pedidos'),
-
+    # Dimensão assinaturas
+    path('assinaturas/aprovadas', assinaturas, name='assinaturas'),
+    
     # Default
     path('admin/', admin.site.urls),
 ]
